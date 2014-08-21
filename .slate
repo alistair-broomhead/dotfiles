@@ -1,15 +1,3 @@
-# SizeUp commands translated to Slate
-
-# TODOs
-#   Spaces Actions
-#   fix SnapBack
-#   option to resize windows proportionally with Multiple Monitor actions
-#   option to resize window absolutely instead of relative to screen size with Center
-#   option to not resize window on Center
-#   SizeUp's "best effort" behavior
-
-### Settings accessed through SizeUp's preferences window
-
 # Screen Edge Margins
 alias ScreenEdgeLeft 0
 alias ScreenEdgeRight 0
@@ -21,16 +9,16 @@ alias PartitionX 0
 alias PartitionY 0
 
 # settings for Center with resizing relative to screen size
-alias centerWidth 0.75
-alias centerHeight 0.75
+alias centerWidth 0.50
+alias centerHeight 0.50
 
 # Split Screen Partitions
-alias SplitX 0.70
-alias SplitY 0.25
+alias SplitX 0.50
+alias SplitY 0.50
 
 # Quarter Screen Partitions
-alias QuarterX 0.70
-alias QuarterY 0.25
+alias QuarterX 0.50
+alias QuarterY 0.50
 
 
 ### Other aliases used here to help translate the user settings to the Slate commands
