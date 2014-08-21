@@ -26,6 +26,7 @@ alias QuarterY 0.50
 # aliases for Screen Edge Margins
 alias sizeX (screenSizeX-${ScreenEdgeLeft}-${ScreenEdgeRight})
 alias sizeY (screenSizeY-${ScreenEdgeUp}-${ScreenEdgeDown})
+alias halfHeight (${sizeY}/2)
 
 alias originX screenOriginX+${ScreenEdgeLeft}
 alias originY screenOriginY+${ScreenEdgeUp}
@@ -48,6 +49,34 @@ alias quarterDown ${sizeY}*${QuarterY}-(${PartitionY}/2)
 alias quarterRightOrigin ${originX}+${sizeX}*${QuarterX}+(${PartitionX}/2)
 alias quarterDownOrigin ${originY}+${sizeY}*(1-${QuarterY})+(${PartitionY}/2)
 
+# aliases for 3 column partitions
+
+alias 3_W (${sizeX}/3)
+alias 3_2W (2*${sizeX}/3)
+alias 3_1 (0*${3_W}+${originX})
+alias 3_2 (1*${3_W}+${originX})
+alias 3_3 (2*${3_W}+${originX})
+
+alias top ${originY}
+alias mid ((${sizeY}/2)+${originY})
+
+alias topCol1 move ${3_1};${top} ${3_W};${halfHeight}
+alias topCol2 move ${3_2};${top} ${3_W};${halfHeight}
+alias topCol3 move ${3_3};${top} ${3_W};${halfHeight}
+alias topCol2L move ${3_1};${top} ${3_2W};${halfHeight}
+alias topCol2R move ${3_2};${top} ${3_2W};${halfHeight}
+
+alias fullCol1 move ${3_1};${top} ${3_W};${sizeY}
+alias fullCol2 move ${3_2};${top} ${3_W};${sizeY}
+alias fullCol3 move ${3_3};${top} ${3_W};${sizeY}
+alias fullCol2L move ${3_1};${top} ${3_2W};${sizeY}
+alias fullCol2R move ${3_2};${top} ${3_2W};${sizeY}
+
+alias bottomCol1 move ${3_1};${mid} ${3_W};${halfHeight}
+alias bottomCol2 move ${3_2};${mid} ${3_W};${halfHeight}
+alias bottomCol3 move ${3_3};${mid} ${3_W};${halfHeight}
+alias bottomCol2L move ${3_1};${mid} ${3_2W};${halfHeight}
+alias bottomCol2R move ${3_2};${mid} ${3_2W};${halfHeight}
 
 # aliases for Centering, with resizing relative to screen size
 alias centerXoffset ${sizeX}*((1-${centerWidth})/2)
@@ -116,6 +145,29 @@ bind /:ctrl;alt;cmd ${SnapBack}
 
 bind left:ctrl;alt ${PrevMonitor}
 bind right:ctrl;alt ${NextMonitor}
+
+# Numpad locations
+
+bind pad1:cmd ${bottomCol1}
+bind pad2:cmd ${bottomCol2}
+bind pad3:cmd ${bottomCol3}
+
+bind pad4:cmd ${fullCol1}
+bind pad5:cmd ${fullCol2}
+bind pad6:cmd ${fullCol3}
+
+bind pad7:cmd ${topCol1}
+bind pad8:cmd ${topCol2}
+bind pad9:cmd ${topCol3}
+
+bind pad1:cmd;alt ${bottomCol2L}
+bind pad3:cmd;alt ${bottomCol2R}
+
+bind pad4:cmd;alt ${fullCol2L}
+bind pad6:cmd;alt ${fullCol2R}
+
+bind pad7:cmd;alt ${topCol2L}
+bind pad9:cmd;alt ${topCol2R}
 
 # bind left:ctrl;cmd ${SpacePrev}
 # bind right:ctrl;cmd ${SpaceNext}
