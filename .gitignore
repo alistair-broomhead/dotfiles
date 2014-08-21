@@ -1,5 +1,8 @@
 .Trash
 .android/
+.boot2docker/
+.cups/
+.dropbox/
 .npm
 .pip
 .psql_history
